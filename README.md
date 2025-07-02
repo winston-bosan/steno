@@ -17,17 +17,17 @@ sudo pacman -S alsa-utils curl wtype libnotify jq
 
 2. **Put your own configuration:**
 `cp config.env.example config.env`
-then:
+then at config.env:
 
 ```bash
-API_ENDPOINT="http://localhost:8000/transcribe"
+API_ENDPOINT="http://localhost:8000/transcribe" # Or where-ever your OAI compliant API is at
 ```
 
-3. **Set up hotkey in Sway or whatever (but then change :**
-   Add to your `~/.config/sway/config`:
-   ```
-   bindsym $mod+Shift+v exec /path/to/steno/voice-to-text.sh
-   ```
+3. **Set up hotkey in Sway:**
+Add to your `~/.config/sway/config`:
+```
+bindsym $mod+Shift+v exec /path/to/steno/voice-to-text.sh
+```
 
 ## Usage
 
