@@ -5,7 +5,7 @@ Purely for personal use, satisfaction not guaranteed, memory leak is guaranteed.
 
 ## Dependencies
 
-Install the required dependencies:
+1. Install the required dependencies:
 
 ```bash
 # Ubuntu/Debian
