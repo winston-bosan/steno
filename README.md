@@ -1,7 +1,7 @@
 # Voice-to-Text Script for Sway
 
-A simple, hotkey-driven voice transcription script designed for the Sway window manager. Captures audio, transcribes via API, and inserts text at cursor position.
-Purely for personal use, satisfaction not guaranteed, memory leak is guaranteed.
+A simple, hotkey-driven voice transcription script designed for the Sway window manager. Captures audio, transcribes via API, and inserts text at cursor position. Nvidia Parakeet backend included if you want it.  
+Purely for personal use, satisfaction not guaranteed.
 
 ## Dependencies
 
@@ -20,7 +20,7 @@ sudo pacman -S alsa-utils curl wtype libnotify jq
 then at config.env:
 
 ```bash
-API_ENDPOINT="http://localhost:8000/transcribe" # Or where-ever your OAI compliant API is at
+API_ENDPOINT="http://localhost:8000/transcribe" # Or where-ever your OAI compliant audio STT API is at
 ```
 
 3. **Set up hotkey in Sway:**
@@ -42,11 +42,13 @@ bindsym $mod+Shift+v exec /path/to/steno/voice-to-text.sh
 ## I like to live dangerously and have an nvidia GPU > 12.1 CUDA and containers don't scare me (in small dosage)
 Fine, here you go:
 ```bash
-git clone https://github.com/your-repo/parakeet-fastapi.git
+git clone https://github.com/Shadowfita/parakeet-fastapi.git
 cd parakeet-fastapi
 docker build -t parakeet-stt .
 docker run -d -p 8000:8000 --gpus all parakeet-stt
 
+# Then go back to the dir before
+cd ../
 git clone https://github.com/winston-bosan/steno.git
 cd steno
 chmod +x voice-to-text.sh
